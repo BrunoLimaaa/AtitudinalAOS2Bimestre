@@ -1,0 +1,102 @@
+<?php
+$aluno = [
+    'nome' => 'João',
+    'notas' => [
+        'matematica' => 4,
+        'portugues' => 7,
+        'historia' => 6,
+        'filosofia' => 10,
+        'sociologia' => 7,
+        'fisica' => 7,
+        'quimica' => 5,
+    ]
+];
+
+function Verificar ($aluno){   
+    $contagem = 0;
+
+    foreach ($aluno['notas'] as $verificacao) {
+        if($verificacao < 6){
+            $contagem++;
+        }
+}
+
+if($contagem >= 3){
+        echo "Não passou de ano";
+    } else {
+        echo "Passou de ano";
+    }
+}
+Verificar ($aluno);
+
+//-------------------------------------------------------
+
+$alunos = [
+    [
+'nome' => 'João', 
+'idade' => 20
+],
+    [
+'nome' => 'Maria', 
+'idade' => 30
+],
+    ['nome' => 'José', 
+'idade' => 40
+],
+    ['nome' => 'Ana', 
+'idade' => 50
+]
+];
+
+$quantidade = 0;
+
+foreach($alunos as $contagem){
+    $quantidade++;
+}
+
+for($i=0;$i<$quantidade;$i++){
+    $idades[$i] = $pessoas[$i]['idade'];
+}
+
+$media = array_sum($idades)/$quantidade;
+
+echo "Media de idades é de $media";
+
+//-------------------------------------------------------
+
+$max = max($idades);
+
+echo "{$max}\n";
+
+//-------------------------------------------------------
+
+$senha = "321";
+
+
+function senhaModificar($senha) {
+    if(strlen($senha) < 8) {
+        echo "A senha precisa de no mínimo 8 caracteres!\n";
+        return false;
+    }
+    if(!preg_match('/[A-Z]/', $senha)) {
+        echo "A senha precisa de no mínimo 1 letra maiúscula!\n";
+        return false;
+    }
+    if(!preg_match('/[a-z]/', $senha)) {
+        echo "A senha precisa de no mínimo 1 letra minúscula!\n";
+        return false;
+    }
+    if(!preg_match('/[0-9]/', $senha)) {
+        echo "A senha precisa de no mínimo 1 número!\n";
+        return false;
+    }
+    return true;
+}
+
+if(senhaModificar($senha)) {
+    echo "A senha esta forte.";
+} else {
+    echo "A senha é fraca, coloque mais caracteres.";
+}
+
+?>
